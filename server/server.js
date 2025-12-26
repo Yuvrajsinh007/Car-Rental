@@ -13,7 +13,10 @@ const app = express();
 await connectDB();
 
 // Middleware
-app.use(cors());
+app.use(cors({
+    origin: "*", // for now (later you can restrict to Vercel domain)
+    credentials: true
+}));
 app.use(express.json());
 
 // Routes
